@@ -7,21 +7,25 @@ USE company_db;
 
 CREATE TABLE employee (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(30),
-    Last_name VARCHAR(30),
-    role_id INT,
-    manager_id INT,
+    first_name VARCHAR(30) NOT NULL,
+    Last_name VARCHAR(30) NOT NULL,
+    role_id INT NOT NULL,
+    manager_id INT NOT NULL,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE role (
     id INT,
-    title VARCHAR(30),
-    salary DECIMAL,
-    department_id INT,
+    title VARCHAR(30) NOT NULL,
+    salary DECIMAL NOT NULL,
+    department_id INT NOT NULL,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE department (
-    id INT,
-    name VARCHAR(30),
+    id INT NOT NULL,
+    name VARCHAR(30) NOT NULL,
+    PRIMARY KEY(id)
 );
+
 
