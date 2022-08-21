@@ -20,7 +20,7 @@ const initQuestions = [
     }
 ]
 
-const addDepartmentPrompt = [
+const addDepartment = [
     {
         type: 'input',
         message: 'Enter name of department you would like to add.',
@@ -65,3 +65,52 @@ const updateEmployee = [
         choices: [],
     },
 ]
+
+
+function init () {
+    inquirer.prompt(initQuestions).then((response) => {
+        if (response.whatToDo === "View all departments") {
+            console.log('view departments');
+            // return init();
+        }
+        if (response.whatToDo === "View all roles") {
+            console.log('view roles');
+            // return init();
+        }
+        if (response.whatToDo === "View all employees") {
+            console.log('view employees');
+            // return init();
+        }
+        if (response.whatToDo === "Add a department") {
+            console.log('Add a department')
+            addDepartmentPrompt();
+        }
+        if (response.whatToDo ==="Add a role") {
+            console.log('add a role');
+            addRolePrompt();
+        }
+        if (response.whatToDo === "Add an employee") {
+            console.log('add an employee');
+            addEmployeePrompt();
+        }
+    });
+};
+
+
+function addDepartmentPrompt() {
+
+};
+
+function addRolePrompt() {
+
+};
+
+function addEmployeePrompt() {
+
+}
+
+
+
+
+
+init();
