@@ -69,27 +69,27 @@ const updateEmployee = [
 
 function init () {
     inquirer.prompt(initQuestions).then((response) => {
-        if (response.whatToDo === "View all departments") {
+        if (response.whatToDo[0]) {
             console.log('view departments');
-            // return init();
+            return init();
         }
-        if (response.whatToDo === "View all roles") {
+        if (response.whatToDo[1]) {
             console.log('view roles');
-            // return init();
+            return init();
         }
-        if (response.whatToDo === "View all employees") {
+        if (response.whatToDo[2]) {
             console.log('view employees');
-            // return init();
+            return init();
         }
-        if (response.whatToDo === "Add a department") {
+        if (response.whatToDo[3]) {
             console.log('Add a department')
             addDepartmentPrompt();
         }
-        if (response.whatToDo ==="Add a role") {
+        if (response.whatToDo[4]) {
             console.log('add a role');
             addRolePrompt();
         }
-        if (response.whatToDo === "Add an employee") {
+        if (response.whatToDo[5]) {
             console.log('add an employee');
             addEmployeePrompt();
         }
@@ -98,15 +98,22 @@ function init () {
 
 
 function addDepartmentPrompt() {
+    inquirer.prompt(addDepartment).then((response) => {
 
+    })
 };
 
 function addRolePrompt() {
+    inquirer.prompt(addRole).then((response) => {
+
+    })
 
 };
 
 function addEmployeePrompt() {
+inquirer.prompt(addEmployee).then((response) => {
 
+})
 }
 
 
