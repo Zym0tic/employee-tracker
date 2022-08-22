@@ -1,5 +1,6 @@
 const mysql = require ('mysql2');
 const inquirer = require ('inquirer');
+const consoleTable = require('console.table');
 
 const db = mysql.createConnection(
     {
@@ -68,18 +69,20 @@ const updateEmployee = [
 
 
 function init () {
+
+    console.log(`
+    ***************EMPLOYEE TRACKER****************
+    `)
+
     inquirer.prompt(initQuestions).then((response) => {
         if (response.whatToDo[0]) {
-            console.log('view departments');
-            return init();
+            viewDepartment();
         }
         if (response.whatToDo[1]) {
-            console.log('view roles');
-            return init();
+            viewRole();
         }
         if (response.whatToDo[2]) {
-            console.log('view employees');
-            return init();
+            viewEmployee();
         }
         if (response.whatToDo[3]) {
             console.log('Add a department')
@@ -93,6 +96,36 @@ function init () {
             console.log('add an employee');
             addEmployeePrompt();
         }
+    });
+};
+
+function viewDepartment() {
+    db.query(`SELECT * FROM department `, function (err, results) {
+        if (err) {
+            console.error(err);
+        }
+        console.table(results);
+        init();
+    });
+};
+
+function viewRole() {
+    db.query(`SELECT * FROM role `, function (err, results) {
+        if (err) {
+            console.error(err);
+        }
+        console.table(results);
+        init();
+    });
+};
+
+function viewEmployee() {
+    db.query(`SELECT * FROM employee `, function (err, results) {
+        if (err) {
+            console.error(err);
+        }
+        console.table(results);
+        init();
     });
 };
 
