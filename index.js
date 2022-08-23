@@ -100,31 +100,31 @@ function init () {
 };
 
 function viewDepartment() {
-    db.query(`SELECT * FROM department `, function (err, results) {
+    db.query(`SELECT * FROM department `, function (err, result) {
         if (err) {
             console.error(err);
         }
-        console.table(results);
+        console.log(result);
         init();
     });
 };
 
 function viewRole() {
-    db.query(`SELECT * FROM role `, function (err, results) {
+    db.query(`SELECT * FROM role `, function (err, result) {
         if (err) {
             console.error(err);
         }
-        console.table(results);
+        console.log(result);
         init();
     });
 };
 
 function viewEmployee() {
-    db.query(`SELECT * FROM employee `, function (err, results) {
+    db.query(`SELECT * FROM employee `, function (err, result) {
         if (err) {
             console.error(err);
         }
-        console.table(results);
+        console.log(result);
         init();
     });
 };
