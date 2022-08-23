@@ -1,6 +1,6 @@
 const mysql = require ('mysql2');
 const inquirer = require ('inquirer');
-const consoleTable = require('console.table');
+const consoleTable = require ('console.table');
 
 const db = mysql.createConnection(
     {
@@ -104,7 +104,7 @@ function viewDepartment() {
         if (err) {
             console.error(err);
         }
-        console.log(result);
+        console.table(result);
         init();
     });
 };
@@ -114,7 +114,7 @@ function viewRole() {
         if (err) {
             console.error(err);
         }
-        console.log(result);
+        console.table(result);
         init();
     });
 };
@@ -124,7 +124,7 @@ function viewEmployee() {
         if (err) {
             console.error(err);
         }
-        console.log(result);
+        console.table(result);
         init();
     });
 };
