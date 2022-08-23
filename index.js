@@ -75,24 +75,24 @@ function init () {
     `)
 
     inquirer.prompt(initQuestions).then((response) => {
-        if (response.whatToDo[0]) {
+        if (response.whatToDo === "View all departments") {
             viewDepartment();
         }
-        if (response.whatToDo[1]) {
+        if (response.whatToDo === "View all roles") {
             viewRole();
         }
-        if (response.whatToDo[2]) {
+        if (response.whatToDo === "View all employees") {
             viewEmployee();
         }
-        if (response.whatToDo[3]) {
+        if (response.whatToDo === "Add a department") {
             console.log('Add a department')
             addDepartmentPrompt();
         }
-        if (response.whatToDo[4]) {
+        if (response.whatToDo === "Add a role") {
             console.log('add a role');
             addRolePrompt();
         }
-        if (response.whatToDo[5]) {
+        if (response.whatToDo === "Add an employee") {
             console.log('add an employee');
             addEmployeePrompt();
         }
